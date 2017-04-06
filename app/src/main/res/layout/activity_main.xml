@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    tools:context="cz.cattie.mathgame.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/topButtons"
+        style="@style/AppTheme.ButtonsHolder"
+        android:layout_marginTop="@dimen/button_margin"
+        android:rotation="180">
+
+        <Button
+            android:onClick="answerPlayer1Click"
+            android:id="@+id/topButton1"
+            style="@style/AppTheme.Button" />
+
+        <Button
+            android:onClick="answerPlayer1Click"
+            android:id="@+id/topButton2"
+            style="@style/AppTheme.Button" />
+
+        <Button
+            android:onClick="answerPlayer1Click"
+            android:id="@+id/topButton3"
+            style="@style/AppTheme.Button"
+            android:layout_marginRight="@dimen/button_margin"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/equationTop"
+        style="@style/AppTheme.EquationText"
+        android:layout_marginTop="16dp"
+        android:rotation="180"
+        android:layout_below="@+id/topButtons"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/score1"
+        style="@style/AppTheme.ScoreText"
+        android:text="@string/zero_point"
+        android:rotation="180"
+        android:layout_above="@+id/button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <!-- Druha pulka -->
+
+    <LinearLayout
+        android:id="@+id/bottomButtons"
+        style="@style/AppTheme.ButtonsHolder"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/button_margin">
+
+        <Button
+            android:onClick="answerPlayer2Click"
+            android:id="@+id/bottomButton1"
+            style="@style/AppTheme.Button" />
+
+        <Button
+            android:onClick="answerPlayer2Click"
+            android:id="@+id/bottomButton2"
+            style="@style/AppTheme.Button" />
+
+        <Button
+            android:onClick="answerPlayer2Click"
+            android:id="@+id/bottomButton3"
+            style="@style/AppTheme.Button"
+            android:layout_marginRight="@dimen/button_margin" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/equationBottom"
+        style="@style/AppTheme.EquationText"
+        android:layout_above="@id/bottomButtons"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:id="@+id/score2"
+        style="@style/AppTheme.ScoreText"
+        android:text="@string/zero_point"
+        android:layout_above="@id/equationBottom"
+        android:layout_marginBottom="16dp"
+        android:textAlignment="center" />
+
+    <Button
+        android:onClick="resetClick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/reset"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:rotation="270"
+        android:id="@+id/button" />
+    
+</RelativeLayout>

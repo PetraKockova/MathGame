@@ -2,4 +2,6 @@
     <string name="app_name">MathGame</string>
     <string name="zero_point">0</string>
     <string name="reset">Reset</string>
+    <string name="won">You win!</string>
+    <string name="lose">You lose!</string>
 </resources>

@@ -111,13 +111,45 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void updatePlayer1Score() {
+
         TextView score = (TextView) findViewById(R.id.score1);
-        score.setText(player1Score + "");
+        if(player1Score == 10) {
+            score.setText(R.string.won);
+            TextView score2 = (TextView) findViewById(R.id.score2);
+            score2.setText(R.string.lose);
+            showHideButtons(true);
+        } else {
+            score.setText(player1Score + "");
+        }
     }
 
     void updatePlayer2Score() {
         TextView score = (TextView) findViewById(R.id.score2);
-        score.setText(player2Score + "");
+        if(player2Score == 10){
+            score.setText(R.string.won);
+            TextView score1 = (TextView) findViewById(R.id.score1);
+            score1.setText(R.string.lose);
+            showHideButtons(true);
+        } else {
+            score.setText(player2Score + "");
+        }
+    }
+
+    void showHideButtons(boolean hide){
+        Button topButton1 = (Button) findViewById(R.id.topButton1);
+        Button topButton2 = (Button) findViewById(R.id.topButton2);
+        Button topButton3 = (Button) findViewById(R.id.topButton3);
+        Button bottomButton1 = (Button) findViewById(R.id.bottomButton1);
+        Button bottomButton2 = (Button) findViewById(R.id.bottomButton2);
+        Button bottomButton3 = (Button) findViewById(R.id.bottomButton3);
+
+        topButton1.setVisibility(hide ? View.INVISIBLE : View.VISIBLE);
+        topButton2.setVisibility(hide ? View.INVISIBLE : View.VISIBLE);
+        topButton3.setVisibility(hide ? View.INVISIBLE : View.VISIBLE);
+        bottomButton1.setVisibility(hide ? View.INVISIBLE : View.VISIBLE);
+        bottomButton2.setVisibility(hide ? View.INVISIBLE : View.VISIBLE);
+        bottomButton3.setVisibility(hide ? View.INVISIBLE : View.VISIBLE);
+
     }
 
     public void answerPlayer1Click(View view) {
@@ -125,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
         int buttonNumber = Integer.parseInt(button.getText().toString());
         if (buttonNumber == result)
             player1Score++;
-        else
+        else if(player1Score > 0)
             player1Score--;
 
         updatePlayer1Score();
@@ -137,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
         int buttonNumber = Integer.parseInt(button.getText().toString());
         if (buttonNumber == result)
             player2Score++;
-        else
+        else if(player2Score > 0)
             player2Score--;
 
         updatePlayer2Score();
@@ -148,6 +180,7 @@ public class MainActivity extends AppCompatActivity {
         player1Score=0;
         player2Score=0;
 
+        showHideButtons(false);
         updatePlayer1Score();
         updatePlayer2Score();
         generateEquation();
